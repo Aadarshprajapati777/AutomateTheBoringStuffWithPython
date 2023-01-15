@@ -9,12 +9,20 @@ for experimentNumber in range(10000):
             flip[i] = 'H'
         else:
             flip[i] = 'T'
-
+    
     # Code that checks if there is a streak of 6 heads or tails in a row.
-    for i in range(94):
-        if flip[i] == flip[i + 1] == flip[i + 2] == flip[i + 3] == flip[i + 4] == flip[i + 5]:
+    count = 0
+    for i in range(99):
+        
+        if flip[i] == flip[i + 1]:
+            count+=1
+        else:
+            count = 0
+        if count == 6:
             numberOfStreaks += 1
+            count = 0
             break
 print(flip)
+print(numberOfStreaks)
 
 print('Chance of streak: %s%%' % (numberOfStreaks / 100))
